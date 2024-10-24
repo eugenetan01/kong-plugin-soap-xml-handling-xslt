@@ -1,0 +1,55 @@
+{
+  "transaction": {
+    "request_id": "123456789652376",
+    "notification_url": "https://webhook.site/32423",
+    "response_url": "http://www.paynamics.com/response",
+    "cancel_url": "http://www.paynamics.com/cancel",
+    "pchannel": "",
+    "payment_notification_status": "1",
+    "payment_notification_channel": "",
+    "amount": "73800.00",
+    "currency": "PHP",
+    "trx_type": "sale",
+    "signature": "{{signatureTrx}}"
+  },
+  "billing_info": {
+    "billing_address1": "First Street",
+    "billing_address2": "H.V. dela Costa Street",
+    "billing_city": "Makati",
+    "billing_state": "Metro Manila",
+    "billing_country": "PH",
+    "billing_zip": "1227"
+  },
+  "shipping_info": {
+    "shipping_address1": "First Street",
+    "shipping_address2": "",
+    "shipping_city": "Quezon City",
+    "shipping_state": "Metro Manila Area",
+    "shipping_country": "PH",
+    "shipping_zip": "1229"
+  },
+  "customer_info": {
+    "fname": "Juan",
+    "lname": "Delacruz",
+    "mname": "",
+    "email": "juandelacruz@paynamics.net",
+    "phone": "330-8227",
+    "mobile": "09171632407",
+    "dob": "",
+    "signature": "{{signature}}"
+  },
+  "order_details": {
+    "orders": [
+      {
+        "itemname": "ST. CLAIRE",
+        "quantity": 1,
+        "unitprice": "73800.00",
+        "totalprice": "73800.00"
+      }
+    ],
+    "subtotalprice": "73800.00",
+    "shippingprice": "0.00",
+    "discountamount": "0.00",
+    "totalorderamount": "73800.00"
+  }
+}
