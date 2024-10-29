@@ -194,10 +194,11 @@ helm install kong kong/kong -n kong --values ./values.yaml
 3) Enable the `soap-xml-request-handling-plugin` on the created route with the following config:
 
   - Ensure the following values are configured on the plugin:
-    a. `XsltLibrary`: `saxon`
-    b. `VerboseRequest`: true
-    c. `xsdSoapSchema`: see [file](./resources/xsdSoapSchema.xml)
-    d. `XsltTransformAfter`: see [file](./resources/xsltTransformAfter.xml)
+
+    a. `XsltLibrary`: `saxon` <br/>
+    b. `VerboseRequest`: true <br/>
+    c. `xsdSoapSchema`: see [file](./resources/xsdSoapSchema.xml) <br/>
+    d. `XsltTransformAfter`: see [file](./resources/xsltTransformAfter.xml) <br/>
 
   - config resembles something like this
     ```
@@ -404,4 +405,4 @@ helm install kong kong/kong -n kong --values ./values.yaml
 
 5) See JSON in the echo-ed response instead of the original XML payload - showing the xslt stylesheet transformed the request body from XML to JSON
 
-  ![](/kong-plugin-soap-xml-handling-xslt/images/result.png)
+  ![](./images/result.png)
