@@ -196,8 +196,8 @@ helm install kong kong/kong -n kong --values ./values.yaml
   - Ensure the following values are configured on the plugin:
     a. `XsltLibrary`: `saxon`
     b. `VerboseRequest`: true
-    c. `xsdSoapSchema`: see [file](/kong-plugin-soap-xml-handling-xslt/resources/xsdSoapSchema.xml)
-    d. `XsltTransformAfter`: see [file](/kong-plugin-soap-xml-handling-xslt/resources/xsltTransformAfter.xml)
+    c. `xsdSoapSchema`: see [file](./resources/xsdSoapSchema.xml)
+    d. `XsltTransformAfter`: see [file](./resources/xsltTransformAfter.xml)
 
   - config resembles something like this
     ```
