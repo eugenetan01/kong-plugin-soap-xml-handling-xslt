@@ -196,8 +196,8 @@ helm install kong kong/kong -n kong --values ./values.yaml
   - Ensure the following values are configured on the plugin:
     a. `XsltLibrary`: `saxon`
     b. `VerboseRequest`: true
-    c. `xsdSoapSchema`: see [file](/kong-plugin-soap-xml-handling/resources/xsdSoapSchema.xml)
-    d. `XsltTransformAfter`: see [file](/kong-plugin-soap-xml-handling/resources/xsltTransformAfter.xml)
+    c. `xsdSoapSchema`: see [file](/kong-plugin-soap-xml-handling-xslt/resources/xsdSoapSchema.xml)
+    d. `XsltTransformAfter`: see [file](/kong-plugin-soap-xml-handling-xslt/resources/xsltTransformAfter.xml)
 
   - config resembles something like this
     ```
@@ -404,4 +404,4 @@ helm install kong kong/kong -n kong --values ./values.yaml
 
 5) See JSON in the echo-ed response instead of the original XML payload - showing the xslt stylesheet transformed the request body from XML to JSON
 
-  ![](/kong-plugin-soap-xml-handling/images/result.png)
+  ![](/kong-plugin-soap-xml-handling-xslt/images/result.png)
