@@ -1,0 +1,83 @@
+<xsl:stylesheet
+    version="3.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:fn="http://www.w3.org/2005/xpath-functions"
+    exclude-result-prefixes="fn">
+
+    <xsl:mode on-no-match="shallow-skip"/>
+    <xsl:output method="text" />
+
+    <xsl:template match="/Request">
+        <xsl:variable name="json-result">
+            <map xmlns="http://www.w3.org/2005/xpath-functions">
+                <map key="transaction">
+                    <string key="request_id"><xsl:value-of select="request_id"/></string>
+                    <string key="notification_url"><xsl:value-of select="notification_urb"/></string>
+                    <string key="response_url"><xsl:value-of select="response_urb"/></string>
+                    <string key="cancel_url"><xsl:value-of select="cancel_urb"/></string>
+                    <string key="pchannel"/>
+                    <string key="payment_notification_status">1</string>
+                    <string key="payment_notification_channel"/>
+                    <string key="amount"><xsl:value-of select="amount"/></string>
+                    <string key="currency"><xsl:value-of select="currency"/></string>
+                    <string key="trx_type"><xsl:value-of select="trxType"/></string>
+                    <string key="signature"><xsl:value-of select="signature"/></string>
+                </map>
+
+                <map key="billing_info">
+                    <string key="billing_address1"><xsl:value-of select="address1"/></string>
+                    <string key="billing_address2"><xsl:value-of select="address2"/></string>
+                    <string key="billing_city"><xsl:value-of select="city"/></string>
+                    <string key="billing_state"><xsl:value-of select="state"/></string>
+                    <string key="billing_country"><xsl:value-of select="country"/></string>
+                    <string key="billing_zip"><xsl:value-of select="zip"/></string>
+                </map>
+
+                <map key="shipping_info">
+                    <string key="shipping_address1"><xsl:value-of select="address1"/></string>
+                    <string key="shipping_city">Quezon City</string>
+                    <string key="shipping_state">Metro Manila Area</string>
+                    <string key="shipping_country"><xsl:value-of select="country"/></string>
+                    <string key="shipping_zip">1229</string>
+                </map>
+
+                <map key="customer_info">
+                    <string key="fname"><xsl:value-of select="name"/></string>
+                    <string key="lname"><xsl:value-of select="lname"/></string>
+                    <string key="mname"><xsl:value-of select="mname"/></string>
+                    <string key="email"><xsl:value-of select="email"/></string>
+                    <string key="phone"><xsl:value-of select="phone"/></string>
+                    <string key="mobile"><xsl:value-of select="mobile"/></string>
+                    <string key="dob"/>
+                    <string key="signature"><xsl:value-of select="signature"/></string>
+                </map>
+
+                <map key="order_details">
+                    <array key="orders">
+                        <xsl:for-each select="orders/items">
+                            <map>
+                                <string key="itemname"><xsl:value-of select="itemname"/></string>
+                                <number key="quantity"><xsl:value-of select="quantity"/></number>
+                                <string key="unitprice">
+                                    <xsl:choose>
+                                        <xsl:when test="quantity > 0">
+                                            <xsl:value-of select="totalprice div quantity"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>0</xsl:otherwise>
+                                    </xsl:choose>
+                                </string>
+                                <string key="totalprice"><xsl:value-of select="amount"/></string>
+                            </map>
+                        </xsl:for-each>
+                    </array>
+                    <string key="subtotalprice"><xsl:value-of select="amount"/></string>
+                    <string key="shippingprice">0.00</string>
+                    <string key="discountamount">0.00</string>
+                    <string key="totalorderamount"><xsl:value-of select="amount"/></string>
+                </map>
+            </map>
+        </xsl:variable>
+
+        <xsl:value-of select="fn:xml-to-json($json-result)" />
+    </xsl:template>
+</xsl:stylesheet>
