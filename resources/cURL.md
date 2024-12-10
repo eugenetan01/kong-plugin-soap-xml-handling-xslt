@@ -1,4 +1,3 @@
-```
 curl --request GET \
   --url http://localhost:1000/mock \
   --header 'Content-Type: application/xml' \
@@ -20,10 +19,10 @@ curl --request GET \
   <response_urb>http://www.paynamics.com/response</response_urb>
   <cancel_urb>http://www.paynamics.com/cancel</cancel_urb>
   <mtac_urb>http://www.paynamics.com/mtac</mtac_urb>
-  <descriptor_note />
+  <descriptor_note></descriptor_note>
   <name>Juan</name>
   <lname>Delacruz</lname>
-  <mname />
+  <mname></mname>
   <address1>First Street</address1>
   <address2>H.V. dela Costa Street</address2>
   <city>Makati</city>
@@ -39,8 +38,7 @@ curl --request GET \
   <amount>73800.00</amount>
   <currency>PHP</currency>
   <logo_url>https://testpi.payserv.net/webpayment/resources/images/paynamics_logo.png</logo_url>
-  <method />
+  <method></method>
   <signature>xxxxx</signature>
 </Request>
 '
-```
